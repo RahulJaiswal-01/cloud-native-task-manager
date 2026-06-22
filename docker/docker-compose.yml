@@ -1,0 +1,56 @@
+services:
+
+  postgres:
+    image: postgres:15
+
+    container_name: postgres
+
+    restart: always
+
+    environment:
+      POSTGRES_DB: notesdb
+      POSTGRES_USER: notesuser
+      POSTGRES_PASSWORD: Notes123
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ../backend
+
+    container_name: backend
+
+    restart: always
+
+    ports:
+      - "5000:5000"
+
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: notesdb
+      DB_USER: notesuser
+      DB_PASSWORD: Notes123
+
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ../frontend
+
+    container_name: frontend
+
+    restart: always
+
+    ports:
+      - "5173:5173"
+
+    depends_on:
+      - backend
+volumes:
+  postgres_data:
