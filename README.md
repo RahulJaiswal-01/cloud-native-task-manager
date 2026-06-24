@@ -43,7 +43,7 @@ Developer → GitHub → Jenkins → Docker → Kubernetes → Application Servi
 
 ### Grafana Monitoring
 
-![Grafana](screenshots/Grafana Dashboard.jpg
+![Grafana](screenshots/GrafanaDashboard.jpg
 
 ## Deployment
 
