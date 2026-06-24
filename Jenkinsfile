@@ -45,20 +45,22 @@ pipeline {
             }
         }
 
-        stage('Deploy To Kubernetes') {
-            steps {
-                sh '''
-                kubectl apply -f k8s/
+	stage('Deploy To Kubernetes') {
+    	    steps {
+       		 sh '''
+        	export KUBECONFIG=/var/lib/jenkins/.kube/config
 
-                kubectl rollout restart deployment/backend \
-                -n cloudnative
+        	kubectl apply -f k8s/
 
-                kubectl rollout restart deployment/frontend \
-                -n cloudnative
-                '''
-            }
-        }
-    }
+        	kubectl rollout restart deployment/backend \
+        	-n cloudnative
+
+        	kubectl rollout restart deployment/frontend \
+        	-n cloudnative
+        	'''
+  	  }
+ 	 }
+	}
 
     post {
 
