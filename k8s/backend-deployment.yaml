@@ -21,9 +21,9 @@ spec:
       containers:
       - name: backend
 
-        image: cloudnative-backend:v1
+        image: docker.io/library/cloudnative-backend:latest
 
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
 
         ports:
         - containerPort: 5000
