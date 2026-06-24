@@ -21,9 +21,8 @@ spec:
       containers:
       - name: frontend
 
-        image: docker-frontend:latest
-
-        imagePullPolicy: Never
+        image: docker.io/library/cloudnative-frontend:latest
+        imagePullPolicy: IfNotPresent
 
         ports:
         - containerPort: 5173
