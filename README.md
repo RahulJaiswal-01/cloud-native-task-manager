@@ -31,7 +31,7 @@ Developer → GitHub → Jenkins → Docker → Kubernetes → Application Servi
 
 ### Application UI
 
-![Application](screenshots/Application UI.jpg)
+![Application](screenshots/ApplicationUI.jpg)
 
 ### Jenkins Pipeline
 
